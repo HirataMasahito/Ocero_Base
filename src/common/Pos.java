@@ -2,6 +2,10 @@ package common;
 
 import java.util.ArrayList;
 
+/**
+ * 座標管理用クラス
+ *
+ */
 public class Pos {
 	/** X座標 */
 	private int x;

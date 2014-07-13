@@ -1,5 +1,8 @@
 package common;
 
+/**
+ * 全体で使用する共通変数、メソッドなど
+ */
 public class Common {
 	/** 盤X最大列数 */
 	public static final int X_MAX_LEN = 8;
@@ -17,7 +20,9 @@ public class Common {
 	 * オセロの石の状態
 	 */
 	public static enum Stone {
-		BLACK("黒"), WHITE("白"), NONE("無");
+		BLACK("黒"),
+		WHITE("白"),
+		NONE("無");
 
 		// メンバ変数の定義
 		// このメンバ変数は必須です。
@@ -37,6 +42,11 @@ public class Common {
 			this.name = name;
 		}
 
+		/***
+		 * 色の反転を行う
+		 * @param stone
+		 * @return
+		 */
 		public static Stone reverseStone(Stone stone) {
 			Stone retStone = NONE;
 			switch (stone) {

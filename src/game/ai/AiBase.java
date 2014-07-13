@@ -16,9 +16,6 @@ public abstract class AiBase {
 	/** Aiの使用色 */
 	private Stone MyColor;
 
-	/** AIの名前ー不要 */
-	private String AiName;
-
 	/**
 	 * 引数憑きコンストラクタ
 	 * @param MyColor AIの仕用色
@@ -34,11 +31,6 @@ public abstract class AiBase {
 	public Stone getMyColor(){
 		return MyColor;
 	}
-
-	public String GetAiName(){
-		return AiName;
-	}
-
 
 	/**
 	 * どこにおくかを取得します。

@@ -16,18 +16,30 @@ import common.Common.Stone;
  */
 public class GameController {
 
+	/** プレイヤーリスト */
 	private ArrayList<AiBase> PlayerList;
 
+	/**
+	 * コンストラクタ
+	 */
 	public GameController() {
 		PlayerList = new ArrayList<AiBase>();
 	}
 
+	/**
+	 * プレイヤー初期化コンストラクタ
+	 * @param Player1 プレイヤー１のAIクラス
+	 * @param Player2 プレイヤー２のAIクラス
+	 */
 	public GameController(AiBase Player1, AiBase Player2) {
 		PlayerList = new ArrayList<AiBase>();
 		PlayerList.add(Player1);
 		PlayerList.add(Player2);
 	}
 
+	/**
+	 * ゲームの開始
+	 */
 	public void GameStart() {
 		boolean passFlg = false;
 		int gameCnt = 0;
@@ -40,16 +52,20 @@ public class GameController {
 
 		// おける場所がある間はループ
 		while (bord.GetCount(Stone.NONE) > 0) {
-			Pos setHand = new Pos();
 
+			// 現在の手版を取得
 			AiBase turnPlayer = PlayerList.get(gameCnt % 2);
-
 			System.out.println(turnPlayer.getMyColor().getName() + "の番");
 
-			setHand = turnPlayer.WhereSet(bord);
+			//プレイヤーから石を置く位置を取得する。 AIが盤をいじらないようクローンを渡す
+			Pos setHand = new Pos();
+			setHand = turnPlayer.WhereSet(bord.clone());
+
+			//設置場所がNULLの場合パスとする
 			if (setHand == null) {
 				System.out.println(turnPlayer.getMyColor().getName() + "はパスします");
 
+				//両プレイヤーがパスをした場合、ゲーム終了とする
 				if (passFlg) {
 					System.out.println("どちらもパスしたため、ゲームを終了します。");
 					break;
@@ -57,13 +73,17 @@ public class GameController {
 
 				passFlg = true;
 			} else {
+				// 石を設置する
 				bord.DoSet(setHand, turnPlayer.getMyColor(), true);
 				passFlg = false;
 			}
 			gameCnt++;
+			//版情報を描画
 			System.out.println(bord.toString());
 		}
-
+		//////
+		//ゲーム終了-結果判断
+		//////
 		int player1Cnt = bord.GetCount(PlayerList.get(0).getMyColor());
 		int player2Cnt = bord.GetCount(PlayerList.get(1).getMyColor());
 

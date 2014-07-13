@@ -11,6 +11,12 @@ import common.Common;
 import common.Common.Stone;
 import common.Pos;
 
+
+/**
+ * 人の手で操作するためのクラス。
+ * TODO 環境に応じて組み替える必要がある。
+ *
+ */
 public class Human extends AiBase {
 
 	public Human(Stone MyColor) {
