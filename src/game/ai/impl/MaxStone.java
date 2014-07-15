@@ -17,7 +17,7 @@ public class MaxStone extends AiBase {
 	}
 
 	@Override
-	public Pos WhereSet(Bord bord) {
+	public Pos WhereSet(Bord bord,Pos clickPos) {
 		return bord.SearchMaxPos(getMyColor());
 	}
 

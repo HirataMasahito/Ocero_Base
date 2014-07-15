@@ -59,7 +59,7 @@ public class GameController {
 
 			//プレイヤーから石を置く位置を取得する。 AIが盤をいじらないようクローンを渡す
 			Pos setHand = new Pos();
-			setHand = turnPlayer.WhereSet(bord.clone());
+			setHand = turnPlayer.WhereSet(bord.clone(),null);
 
 			//設置場所がNULLの場合パスとする
 			if (setHand == null) {

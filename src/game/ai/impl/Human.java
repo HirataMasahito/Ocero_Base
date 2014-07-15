@@ -24,7 +24,7 @@ public class Human extends AiBase {
 	}
 
 	@Override
-	public Pos WhereSet(Bord bord) {
+	public Pos WhereSet(Bord bord,Pos clickPos) {
 
 		int xPos =getSet("X");
 		int yPos =getSet("Y");

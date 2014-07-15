@@ -21,7 +21,7 @@ public class MaxStoneR extends AiBase {
 	}
 
 	@Override
-	public Pos WhereSet(Bord bord) {
+	public Pos WhereSet(Bord bord,Pos clickPos) {
 		Pos retPos = null;
 
 		ArrayList<Point> handList = new ArrayList<Point>();

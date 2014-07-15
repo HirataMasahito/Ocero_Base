@@ -42,7 +42,7 @@ public class SteadyR extends AiBase {
 	}
 
 	@Override
-	public Pos WhereSet(Bord bord) {
+	public Pos WhereSet(Bord bord,Pos clickPos) {
 		Pos retPos = null;
 
 		ArrayList<Pos> myHands = bord.getCanSetList(getMyColor());

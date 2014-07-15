@@ -333,24 +333,25 @@ public class Bord {
 	public String toString() {
 		// 現在の盤情報を文字列で取得する
 		StringBuilder sb = new StringBuilder();
-
+		sb.append("  ０１２３４５６７\r\n");
 		Pos workPos = new Pos();
 		for (int y = Common.Y_MIN_LEN; y < Common.Y_MAX_LEN; y++) {
 			workPos.setY(y);
+			sb.append(y+" ");
 			for (int x = Common.X_MIN_LEN; x < Common.X_MAX_LEN; x++) {
 				workPos.setX(x);
 				switch (getColor(workPos)) {
 				case NONE:
-					sb.append("N");
+					sb.append("　");
 					break;
 				case BLACK:
-					sb.append("B");
+					sb.append("●");
 					break;
 				case WHITE:
-					sb.append("W");
+					sb.append("○");
 					break;
 				}
-				sb.append("\t");
+				sb.append("");
 			}
 			sb.append("\r\n");
 		}
